@@ -15,9 +15,7 @@ public class Problem {
      */
 
     public static Boolean avengersAssemble(boolean dcHero, boolean avengerHero) {
-
-        return null;
-
+        return !dcHero || avengerHero;
     }
 
     /* Problem 3
@@ -32,8 +30,7 @@ public class Problem {
      */
 
     public static Boolean nearValue(int n) {
-
-        return null;
+        return (n >= 90 && n <= 100) || (n >= 190 && n <= 200);
     }
 
      /* Problem 4
@@ -47,8 +44,7 @@ public class Problem {
      */
 
     public static String missingLetter(String letter, int n) {
-
-        return null;
+        return letter.substring(0, n) + letter.substring(n + 1);
     }
 
     /* Problem 5
@@ -62,8 +58,8 @@ public class Problem {
      */
 
     public static String wordOfDay(String word) {
-
-        return null;
+        char lastLetter = word.charAt(word.length() - 1);
+        return  lastLetter + word + lastLetter;
     }
 
     /* Problem 6
@@ -75,8 +71,7 @@ public class Problem {
      */
 
     public static Boolean beginWithHi(String phrase) {
-
-        return null;
+        return phrase.startsWith("hi");
     }
 
      /* Problem 7
@@ -89,8 +84,7 @@ public class Problem {
      */
 
     public static Boolean containTeen(int one, int two, int three){
-
-        return null;
+        return (13 <= one) && (19 >= one) || (13 <= two) && (19 >= two) || (13 <= three) && (19 >= three);
     }
 
     /* Problem 8
@@ -104,12 +98,11 @@ public class Problem {
      */
 
     public static Boolean startWithIx(String phrase) {
-
-        return null;
+        return phrase.startsWith("ix", 1) && phrase.indexOf(" ") == 3;
     }
 
      /* Problem 9
-    Provide two numbers, evalute both numbers to see which one is nearest to the value 10.
+    Provide two numbers, evaluate both numbers to see which one is nearest to the value 10.
     Some numbers may have the same range in how near they are to 10; such as 13 and 7 both are 3 from 10;
     In that case, we would consider that event a tie.
     Tip: Math.abs(n) returns the absolute value of a number
@@ -120,8 +113,13 @@ public class Problem {
      */
 
     public static Integer near10(int one, int two){
-
-        return null;
+        if (Math.abs(10 - one) == Math.abs(10 - two)) {
+            return 0;
+        } else if (Math.abs(10 - one) < Math.abs(10 - two)) {
+            return one;
+        } else {
+            return two;
+        }
     }
 
     /* Problem 10
@@ -133,7 +131,7 @@ public class Problem {
      */
 
     public static Boolean containE(String str) {
-
-        return null;
+        int totalEs = str.length() - str.replace("e", "").length();
+        return (totalEs >= 1 && totalEs <= 3);
     }
 }
