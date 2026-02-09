@@ -18,8 +18,13 @@ public class Problem {
      */
 
     public static String everyOther(String str, int n) {
-
-        return null;
+        String answer = "";
+        for (int i = 0; i < str.length(); i++) {
+            if ((i + 1) % n == 0) {
+                answer += str.charAt(i);
+            }
+        }
+        return answer;
     }
 
     /* Problem 12
@@ -36,8 +41,7 @@ public class Problem {
     */
 
     public static Boolean dogTrouble(boolean bulldogGrowl, boolean labGrowl) {
-
-        return null;
+        return (bulldogGrowl && labGrowl) || (bulldogGrowl == false && labGrowl == false);
     }
 
     /* Problem 13
@@ -53,8 +57,11 @@ public class Problem {
      */
 
     public static Boolean puppyCry(boolean crying, int hour) {
-
-        return null;
+        if (!crying) {
+            return false;
+        } else {
+            return (hour < 7) || (hour > 20);
+        }
     }
 
 
@@ -73,7 +80,13 @@ public class Problem {
      */
 
     public static Boolean checkPosOrNeg(int a, int b, boolean negative) {
-
+        if (!negative) {
+            if ((a < 0) && (b < 0)) {
+                return true;
+            } else {
+                return ((a < 0) && (b > 0)) || ((b < 0) && (a > 0));
+            }
+        }
         return null;
     }
 
@@ -90,8 +103,14 @@ public class Problem {
      */
 
     public static String exchange(String str) {
+        if (str.length() == 1) {
+            return str;
+        } else if (str.length() == 2) {
+            return "" + str.charAt(1) + str.charAt(0);
+        } else {
+            return str.charAt(str.length() - 1) + str.substring(1, str.length() - 1) + str.charAt(0);
+        }
 
-        return null;
     }
 
 
@@ -111,8 +130,7 @@ public class Problem {
      */
 
     public static Boolean multipleOf(int number){
-
-        return null;
+        return (number % 3 == 0 || number % 5 == 0);
     }
 
 
@@ -131,7 +149,7 @@ public class Problem {
 
     public static Boolean checkTemp(int temp1, int temp2) {
 
-        return null;
+        return ((temp1 < 0 && temp2 > 100) || (temp1 > 100 && temp2 < 0));
     }
 
 
@@ -152,7 +170,8 @@ public class Problem {
 
     public static Boolean oneTeen(int person1, int person2) {
 
-        return null;
+        return (((12 < person1 && 20 > person1) && !(12 < person2 && 20 > person2) ||
+                (12 < person2 && 20 > person2) && !(12 < person1 && 20 > person1)));
     }
 
 
@@ -170,8 +189,15 @@ public class Problem {
      */
 
     public static String beginWithOz(String ounces) {
-
-        return null;
+        if (ounces.charAt(0) == 'o' && ounces.charAt(1) == 'z') {
+            return "oz";
+        } else if (ounces.charAt(0) == 'o') {
+            return "o";
+        } else if (ounces.charAt(1) == 'z') {
+            return "z";
+        } else {
+            return "";
+        }
     }
 
 
@@ -189,7 +215,7 @@ public class Problem {
      */
 
     public static Boolean range3050(int one, int two) {
-
-        return null;
+        return ((29 < one && 41 > one) && (29 < two && 41 > two)) ||
+                ((39 < one && 51 > one) && (39 < two && 51 > two));
     }
 }
